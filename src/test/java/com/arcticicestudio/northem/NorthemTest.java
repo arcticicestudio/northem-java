@@ -46,4 +46,23 @@ import static org.junit.Assert.assertEquals;
  * @see <a href="https://github.com/arcticicestudio/northem-java">Northem - Java</a>
  * @since 0.1.0
  */
-public class NorthemTest {}
+public class NorthemTest {
+  @Test
+  public void shouldReturnTheCorrectHEXColorCode() {
+    assertEquals(Northem.hex(Northem.DARKEST_GRAY.get()), "#2D2D2E");
+    assertEquals(Northem.hex(Northem.DARK_GRAY.get()), "#333334");
+    assertEquals(Northem.hex(Northem.GRAY.get()), "#383839");
+    assertEquals(Northem.hex(Northem.LIGHT_GRAY.get()), "#606062");
+    assertEquals(Northem.hex(Northem.DIRTY_WHITE.get()), "#DEDEDE");
+    assertEquals(Northem.hex(Northem.WHITE.get()), "#ECEEEF");
+    assertEquals(Northem.hex(Northem.AQUA.get()), "#90CDC7");
+    assertEquals(Northem.hex(Northem.LIGHT_BLUE.get()), "#86C1D2");
+    assertEquals(Northem.hex(Northem.BLUE.get()), "#88B2CD");
+    assertEquals(Northem.hex(Northem.DARK_BLUE.get()), "#5C81AE");
+    assertEquals(Northem.hex(Northem.RED.get()), "#DF7574");
+    assertEquals(Northem.hex(Northem.YELLOW.get()), "#FCCE85");
+    assertEquals(Northem.hex(Northem.ORANGE.get()), "#EFA070");
+    assertEquals(Northem.hex(Northem.LIME.get()), "#C8CB79");
+    assertEquals(Northem.hex(Northem.PURPLE.get()), "#C2A2C9");
+  }
+}
