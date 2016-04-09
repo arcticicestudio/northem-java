@@ -32,6 +32,9 @@ Arctic Versioning Specification
 */
 package com.arcticicestudio.northem;
 
+import javafx.scene.paint.Color;
+import java.util.regex.Pattern;
+
 /**
  * <a href="https://github.com/arcticicestudio/northem">Northem</a> color palette
   * as enumeration of the <a href="https://github.com/arcticicestudio/northem-java">Northem - Java</a> project.
@@ -138,6 +141,11 @@ public enum Northem {
    * <div style="border:none;width:25px;height:30px;background-color:rgb(194,162,201);margin: 0"></div>
    */
   PURPLE(194,162,201);
+
+  /**
+   * Compiled pattern to convert the RGB and HEX color values.
+   */
+  private static final Pattern COLOR_PREFIX = Pattern.compile("0x", Pattern.LITERAL);
 
   /**
    * Contains the RGB color code.
