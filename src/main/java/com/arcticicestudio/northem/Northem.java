@@ -62,4 +62,80 @@ package com.arcticicestudio.northem;
  * @see <a href="https://github.com/arcticicestudio/northem-java">"Northem - Java" GitHub Repository</a>
  * @since 0.1.0
  */
-public enum Northem {}
+public enum Northem {
+  /**
+   * The color {@code darkest-gray} with an RGB value of {@code rgb(45,45,46)} and HEX value of {@code #2D2D2E}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(45,45,46);margin: 0"></div>
+   */
+  DARKEST_GRAY(45,45,46),
+  /**
+   * The color {@code dark-gray} with an RGB value of {@code rgb(51,51,52)} and HEX value of {@code #333334}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(51,51,52);margin: 0"></div>
+   */
+  DARK_GRAY(51,51,52),
+  /**
+   * The color {@code gray} with an RGB value of {@code rgb(56,56,57)} and HEX value of {@code #383839}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(56,56,57);margin: 0"></div>
+   */
+  GRAY(56,56,57),
+  /**
+   * The color {@code light-gray} with an RGB value of {@code rgb(96,96,98)} and HEX value of {@code #606062}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(96,96,98);margin: 0"></div>
+   */
+  LIGHT_GRAY(96,96,98),
+  /**
+   * The color {@code dirty-white} with an RGB value of {@code rgb(222,222,222)} and HEX value of {@code #DEDEDE}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(222,222,222);margin: 0"></div>
+   */
+  DIRTY_WHITE(222,222,222),
+  /**
+   * The color {@code white} with an RGB value of {@code rgb(236,238,239)} and HEX value of {@code #ECEEEF}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(236,238,239);margin: 0"></div>
+   */
+  WHITE(236,238,239),
+  /**
+   * The color {@code aqua} with an RGB value of {@code rgb(144,205,199)} and HEX value of {@code #90CDC7}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(144,205,199);margin: 0"></div>
+   */
+  AQUA(144,205,199),
+  /**
+   * The color {@code light-blue} with an RGB value of {@code rgb(134,193,210)} and HEX value of {@code #86C1D2}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(134,193,210);margin: 0"></div>
+   */
+  LIGHT_BLUE(134,193,210),
+  /**
+   * The color {@code blue} with an RGB value of {@code rgb(136,178,205)} and HEX value of {@code #88B2CD}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(136,178,205);margin: 0"></div>
+   */
+  BLUE(136,178,205),
+  /**
+   * The color {@code dark-blue} with an RGB value of {@code rgb(92,129,174)} and HEX value of {@code #5C81AE}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(92,129,174);margin: 0"></div>
+   */
+  DARK_BLUE(92,129,174),
+  /**
+   * The color {@code red} with an RGB value of {@code rgb(223,117,116)} and HEX value of {@code #DF7574}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(223,117,116);margin: 0"></div>
+   */
+  RED(223,117,116),
+  /**
+   * The color {@code yellow} with an RGB value of {@code rgb(252,206,133)} and HEX value of {@code #FCCE85}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(252,206,133);margin: 0"></div>
+   */
+  YELLOW(252,206,133),
+  /**
+   * The color {@code orange} with an RGB value of {@code rgb(239,160,112)} and HEX value of {@code #EFA070}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(239,160,112);margin: 0"></div>
+   */
+  ORANGE(239,160,112),
+  /**
+   * The color {@code lime} with an RGB value of {@code rgb(200,203,121)} and HEX value of {@code #C8CB79}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(200,203,121);margin: 0"></div>
+   */
+  LIME(200,203,121),
+  /**
+   * The color {@code purple} with an RGB value of {@code rgb(194,162,201)} and HEX value of {@code #C2A2C9}.
+   * <div style="border:none;width:25px;height:30px;background-color:rgb(194,162,201);margin: 0"></div>
+   */
+  PURPLE(194,162,201);
+}
