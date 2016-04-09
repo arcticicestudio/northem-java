@@ -3,7 +3,7 @@
 title     Northem Enumeration JUnit Test  +
 project   northem-java                    +
 file      NorthemTest.java                +
-version                                   +
+version   0.1.0                           +
 author    Arctic Ice Studio               +
 email     development@arcticicestudio.com +
 website   http://arcticicestudio.com      +

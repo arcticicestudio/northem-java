@@ -1,10 +1,10 @@
 {
   "id": "northem-java",
   "name": "Northem - Java",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "date": {
    "created": "2016-01-19 12:28 UTC+0100",
-   "updated": "2016-04-09 12:07 UTC+0200"
+   "updated": "2016-04-09 12:28 UTC+0200"
   },
   "access": "public",
   "modularity": "subproject",
