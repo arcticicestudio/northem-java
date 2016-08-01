@@ -9,11 +9,11 @@ author    Arctic Ice Studio               +
 email     development@arcticicestudio.com +
 copyright Copyright (C) 2016              +
 created   2016-07-31 21:42 UTC+0200       +
-modified  2016-08-01 21:53 UTC+0200       +
+modified  2016-08-01 22:25 UTC+0200       +
 +++++++++++++++++++++++++++++++++++++++++++
 
 [Description]
-Project POM based on the skeleton file of the "glacier-apache-maven@0.2.0" project.
+Project POM based on the skeleton file of the "glacier-apache-maven@0.3.0" project.
 
 [Index]
   (1) Coordinates
@@ -47,6 +47,8 @@ Project POM based on the skeleton file of the "glacier-apache-maven@0.2.0" proje
     (10.0) assemble
     (10.1) sign-gpg
     (10.2) sign-jarsigner
+    (10.3) secure-properties
+    (10.4) enforce-jdk-version
 
 [Copyright]
 Copyright (C) 2016 Arctic Ice Studio <development@arcticicestudio.com>
@@ -397,33 +399,6 @@ Glacier Apache Maven Project
         <configuration>
           <verificationFile>${mainAssetsDirectory}/verifications-project.xml</verificationFile>
         </configuration>
-      </plugin>
-
-      <!--
-      Verifies the usage of the specified Java version.
-
-      @see http://maven.apache.org/enforcer/maven-enforcer-plugin/enforce-mojo.html
-      @since 0.1.0
-      -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.4.1</version>
-        <executions>
-          <execution>
-            <id>enforce-java-version</id>
-            <goals>
-              <goal>enforce</goal>
-            </goals>
-            <configuration>
-              <rules>
-                <requireJavaVersion>
-                  <version>${requireJavaVersion}</version>
-                </requireJavaVersion>
-              </rules>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0]-+-->
 
@@ -988,6 +963,49 @@ Glacier Apache Maven Project
       </build>
     </profile>
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10.3]-+-->
+
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+        + Profiles - enforce-jdk-version                                      [10.4] +
+        +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
+    <!--
+    Enforces the usage of the specified JDK version.
+
+    @since 0.1.0
+    -->
+    <profile>
+      <id>enforce-jdk-version</id>
+      <build>
+        <plugins>
+      <!--
+      Enforces the usage of the specified JDK version.
+
+      @see http://maven.apache.org/enforcer/maven-enforcer-plugin/enforce-mojo.html
+      @since 0.1.0
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.4.1</version>
+        <executions>
+          <execution>
+            <id>enforce-jdk-version</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>${requireJavaVersion}</version>
+                </requireJavaVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10.4]-+-->
   </profiles>
   <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10]-+-->
 </project>
