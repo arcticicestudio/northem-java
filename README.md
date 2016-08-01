@@ -54,9 +54,9 @@ Build and install northem-java into your local repository without GPG signing:
 mvn clean install
 ```
 
-To build signed artifacts enable the `gpgSign` profile and provide your GPG Key ID:
+Signed artifacts may be build by using the `sign-gpg` profile with a provided `gpg.keyname` property:
 ```
-mvn clean install -PgpgSign -DsecurePGPKeyId=YourGPGKeyId
+mvn clean install -Dgpg.keyname=YourGPGKeyId
 ```
 
 A continuous integration build is running at [Travis-CI](https://travis-ci.org/arcticicestudio/northem-java).

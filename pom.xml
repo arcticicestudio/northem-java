@@ -9,11 +9,11 @@ author    Arctic Ice Studio               +
 email     development@arcticicestudio.com +
 copyright Copyright (C) 2016              +
 created   2016-07-31 21:42 UTC+0200       +
-modified  2016-07-31 23:46 UTC+0200       +
+modified  2016-08-01 21:53 UTC+0200       +
 +++++++++++++++++++++++++++++++++++++++++++
 
 [Description]
-Project POM based on the skeleton file of the "glacier-apache-maven@0.1.0" project.
+Project POM based on the skeleton file of the "glacier-apache-maven@0.2.0" project.
 
 [Index]
   (1) Coordinates
@@ -32,23 +32,21 @@ Project POM based on the skeleton file of the "glacier-apache-maven@0.1.0" proje
       (6.0.0) test
   (7) Build
     (7.0) Plugins
-      (7.0.0) Phases
-        (7.0.0.0) validate
-        (7.0.0.1) compile
-        (7.0.0.2) process-resources
-        (7.0.0.3) package
-        (7.0.0.4) verify
-        (7.0.0.5) install
-        (7.0.0.6) deploy
-      (7.0.1) Configured Goals
-        (7.0.1.0) jarsigner:sign
+      (7.0.0) validate
+      (7.0.1) compile
+      (7.0.2) process-resources
+      (7.0.3) package
+      (7.0.4) verify
+      (7.0.5) install
+      (7.0.6) deploy
   (8) Repositories
     (8.0) Maven Central
   (9) Plugin Repositories
     (9.0) Maven Central
   (10) Profiles
     (10.0) assemble
-    (10.0) gpgSign
+    (10.1) sign-gpg
+    (10.2) sign-jarsigner
 
 [Copyright]
 Copyright (C) 2016 Arctic Ice Studio <development@arcticicestudio.com>
@@ -374,36 +372,8 @@ Glacier Apache Maven Project
         +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
     <plugins>
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases                                           [7.0.0] +
+          + Build - Plugins - validate                                         [7.0.0] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - validate                              [7.0.0.0] +
-          +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
-      <!--
-      Reads all properties from the secure property file "pom-secure.properties".
-
-      @see http://www.mojohaus.org/properties-maven-plugin/read-project-properties-mojo.html
-      @since 0.1.0
-      -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>properties-maven-plugin</artifactId>
-        <version>1.0.0</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>read-project-properties</goal>
-            </goals>
-            <configuration>
-              <files>
-                <file>${basedir}/pom-secure.properties</file>
-              </files>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
       <!--
       Verifies the existence of files using the specified verification descriptors.
 
@@ -455,10 +425,10 @@ Glacier Apache Maven Project
           </execution>
         </executions>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.0]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - compile                               [7.0.0.1] +
+          + Build - Plugins - compile                                          [7.0.1] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Compiles the main Java source code.
@@ -478,10 +448,10 @@ Glacier Apache Maven Project
           <failOnError>true</failOnError>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.1]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.1]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - process-resources                     [7.0.0.2] +
+          + Build - Plugins - process-resources                                [7.0.2] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Copies the resources for the main source code.
@@ -499,10 +469,10 @@ Glacier Apache Maven Project
           <encoding>${project.build.sourceEncoding}</encoding>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.2]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.2]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - package                               [7.0.0.3] +
+          + Build - Plugins - package                                          [7.0.3] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Copies the project dependency artifacts with the configured scope
@@ -655,10 +625,10 @@ Glacier Apache Maven Project
           <windowtitle>${project.name} ${project.version} API</windowtitle>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.3]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.3]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - verify                                [7.0.0.4] +
+          + Build - Plugins - verify                                           [7.0.4] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Creates checksum files for all artifacts and assemblies.
@@ -704,10 +674,10 @@ Glacier Apache Maven Project
           </fileSets>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.4]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.4]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - install                               [7.0.0.5] +
+          + Build - Plugins - install                                          [7.0.5] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Installs the project's main artifact, and any other artifacts attached by other plugins in the lifecycle,
@@ -733,10 +703,10 @@ Glacier Apache Maven Project
           <createChecksum>true</createChecksum>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.5]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.5]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Phases - deploy                                [7.0.0.6] +
+          + Build - Plugins - deploy                                           [7.0.6] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Deploys the artifacts to OSSRH to release them to the Central Repository.
@@ -755,40 +725,7 @@ Glacier Apache Maven Project
           <autoReleaseAfterClose>false</autoReleaseAfterClose>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0.6]-+-->
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0]-+-->
-
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Configured Goals                                 [7.0.1] +
-          +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - Configured Goals - jarsigner:sign              [7.0.1.0] +
-          +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
-      <!--
-      Signs all project artifacts using the jarsigner with the specified secure properties.
-      NOTE:
-        Must be executed after the "package" phase!
-
-      @see http://maven.apache.org/plugins/maven-jarsigner-plugin/sign-mojo.html
-      @since 0.1.0
-      -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jarsigner-plugin</artifactId>
-        <version>1.4</version>
-        <inherited>true</inherited>
-        <configuration>
-          <keystore>${secureJarsignerKeystore}</keystore>
-          <alias>${secureJarsignerKeystoreAlias}</alias>
-          <storepass>${secureJarsignerKeystorePassword}</storepass>
-          <storepass>${secureJarsignerKeystorePassword}</storepass>
-          <sigfile>${secureJarsignerSignatureName}</sigfile>
-          <keypass>${secureJarsignerKeyPassword}</keypass>
-          <verbose>true</verbose>
-        </configuration>
-      </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.1.0]-+-->
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.1]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.6]-+-->
     </plugins>
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0]-+-->
   </build>
@@ -867,6 +804,9 @@ Glacier Apache Maven Project
       +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
   <profiles>
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+        + Profiles - javafx                                                   [10.0] +
+        +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
         + Profiles - assemble                                                 [10.0] +
         +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
     <!--
@@ -912,20 +852,25 @@ Glacier Apache Maven Project
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10.0]-+-->
 
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-        + Profiles - gpgSign                                                  [10.1] +
+        + Profiles - sign-gpg                                                 [10.1] +
         +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
     <!--
-    Signs all project artifacts.
+    Signs all project artifacts using GPG.
 
     @since 0.1.0
     -->
     <profile>
-      <id>gpgSign</id>
+      <id>sign-gpg</id>
+      <activation>
+        <property>
+          <name>gpg.keyname</name>
+        </property>
+      </activation>
       <build>
         <plugins>
           <!--
-          Signs all project artifacts using the specified PGP alias/keyid.
-          The alias can be configured using the "securePGPKeyId" external secure property.
+          Signs all project artifacts using the specified GPG alias/keyid.
+          The alias can be configured using the "gpg.keyname" external secure property.
 
           @see http://maven.apache.org/plugins/maven-gpg-plugin/sign-mojo.html
           @since 0.1.0
@@ -945,13 +890,104 @@ Glacier Apache Maven Project
             </executions>
             <configuration>
               <ascDirectory>.</ascDirectory>
-              <keyname>${securePGPKeyId}</keyname>
+              <keyname>${gpg.keyname}</keyname>
             </configuration>
           </plugin>
         </plugins>
       </build>
     </profile>
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10.1]-+-->
+
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+        + Profiles - sign-jarsigner                                           [10.2] +
+        +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
+    <!--
+    Signs all project artifacts using the jarsigner.
+
+    @since 0.1.0
+    -->
+    <profile>
+      <id>sign-jarsigner</id>
+      <build>
+        <plugins>
+          <!--
+          Signs all project artifacts using the jarsigner with the specified properties.
+
+          @see http://maven.apache.org/plugins/maven-jarsigner-plugin/sign-mojo.html
+          @since 0.1.0
+          -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jarsigner-plugin</artifactId>
+            <version>1.4</version>
+            <inherited>true</inherited>
+            <executions>
+              <execution>
+                <id>jarsigner-sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <keystore>${jarsigner.keystore}</keystore>
+              <alias>${jarsigner.alias}</alias>
+              <storepass>${jarsigner.storepass}</storepass>
+              <keypass>${jarsigner.keypass}</keypass>
+              <sigfile>AIS</sigfile>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10.2]-+-->
+
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+        + Profiles - secure-properties                                        [10.3] +
+        +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
+    <!--
+    Reads all properties from the secure property file.
+
+    @since 0.1.0
+    -->
+    <profile>
+      <id>secure-properties</id>
+      <activation>
+        <file>
+          <exists>${securePropertyFile}</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <!--
+          Reads all properties from the secure property file.
+
+          @see http://www.mojohaus.org/properties-maven-plugin/read-project-properties-mojo.html
+          @since 0.1.0
+          -->
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>properties-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <executions>
+              <execution>
+                <phase>validate</phase>
+                <goals>
+                  <goal>read-project-properties</goal>
+                </goals>
+                <configuration>
+                  <files>
+                    <file>${securePropertyFile}</file>
+                  </files>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10.3]-+-->
   </profiles>
   <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -[10]-+-->
 </project>
