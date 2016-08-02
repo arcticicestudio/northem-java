@@ -1,6 +1,17 @@
 Northem - Java
 ==============
 
+## 0.2.0 (2016-08-02) - Apache Maven Migration
+This version is mainly focused on a [Apache Maven](https://maven.apache.org) migration.
+Release and snapshot versions are now deployed to the [Central Repository](https://search.maven.org) via [OSS Sonatype](https://oss.sonatype.org).
+
+### Improvements
+#### Build Tool
+  - Migrated to [Apache Maven](https://maven.apache.org) based on the [`glacier-apache-maven@0.3.0`](https://github.com/arcticicestudio/glacier-apache-maven) project skeletons
+
+#### Documentation
+  - The `README` has been restyled and now includes a "Getting started" section
+
 ## 0.1.0 (2016-04-09)
 ### Features
   - Implemented the [Northem](https://github.com/arcticicestudio/northem) color palette enumeration class [`Northem`](https://github.com/arcticicestudio/northem-java/blob/master/src/main/java/com/arcticicestudio/northem/Northem.java)  
