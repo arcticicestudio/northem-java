@@ -33,8 +33,8 @@ Project POM based on the skeleton file of the "glacier-apache-maven@0.3.0" proje
   (7) Build
     (7.0) Plugins
       (7.0.0) validate
-      (7.0.1) compile
-      (7.0.2) process-resources
+      (7.0.1) process-resources
+      (7.0.2) compile
       (7.0.3) package
       (7.0.4) verify
       (7.0.5) install
@@ -403,7 +403,28 @@ Glacier Apache Maven Project
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.0]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - compile                                          [7.0.1] +
+          + Build - Plugins - process-resources                                [7.0.1] +
+          +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
+      <!--
+      Copies the resources for the main source code.
+
+      @see https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html
+      @since 0.1.0
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.1</version>
+        <inherited>true</inherited>
+        <configuration>
+          <includeEmptyDirs>true</includeEmptyDirs>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.1]-+-->
+
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+          + Build - Plugins - compile                                          [7.0.2] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Compiles the main Java source code.
@@ -423,31 +444,44 @@ Glacier Apache Maven Project
           <failOnError>true</failOnError>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.1]-+-->
-
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - process-resources                                [7.0.2] +
-          +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
-      <!--
-      Copies the resources for the main source code.
-
-      @see https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html
-      @since 0.1.0
-      -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.0.1</version>
-        <inherited>true</inherited>
-        <configuration>
-          <includeEmptyDirs>true</includeEmptyDirs>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.2]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - package                                          [7.0.3] +
+          + Build - Plugins - test                                             [7.0.3] +
+          +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
+      <!--
+      Prepares the agent and creates a code coverage report for tests of a single project
+      in multiple formats used by the codecov.io "codecov-bash" tool triggered by
+      Travis CI.
+
+      @see http://www.eclemma.org/jacoco/trunk/doc/report-mojo.html
+      @see http://www.eclemma.org/jacoco/trunk/doc/prepare-agent-mojo.html
+      @see https://github.com/codecov/codecov-bash
+      @since 0.1.0
+      -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.7.7.201606060606</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.3]-+-->
+
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+          + Build - Plugins - package                                          [7.0.4] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Copies the project dependency artifacts with the configured scope
@@ -600,10 +634,10 @@ Glacier Apache Maven Project
           <windowtitle>${project.name} ${project.version} API</windowtitle>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.3]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.4]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - verify                                           [7.0.4] +
+          + Build - Plugins - verify                                           [7.0.5] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Creates checksum files for all artifacts and assemblies.
@@ -649,10 +683,10 @@ Glacier Apache Maven Project
           </fileSets>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.4]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.5]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - install                                          [7.0.5] +
+          + Build - Plugins - install                                          [7.0.6] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Installs the project's main artifact, and any other artifacts attached by other plugins in the lifecycle,
@@ -678,10 +712,10 @@ Glacier Apache Maven Project
           <createChecksum>true</createChecksum>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.5]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.6]-+-->
 
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
-          + Build - Plugins - deploy                                           [7.0.6] +
+          + Build - Plugins - deploy                                           [7.0.7] +
           +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +-->
       <!--
       Deploys the artifacts to OSSRH to release them to the Central Repository.
@@ -700,7 +734,7 @@ Glacier Apache Maven Project
           <autoReleaseAfterClose>false</autoReleaseAfterClose>
         </configuration>
       </plugin>
-      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.6]-+-->
+      <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.7]-+-->
     </plugins>
     <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0]-+-->
   </build>
