@@ -1049,10 +1049,10 @@ Glacier Apache Maven Project
                   <goal>report</goal>
                 </goals>
               </execution>
-              <configuration>
-                <dataFile>${buildRootDirectory}/jacoco-report.exec</dataFile>
-              </configuration>
             </executions>
+            <configuration>
+              <dataFile>${buildRootDirectory}/jacoco-report.exec</dataFile>
+            </configuration>
           </plugin>
         </plugins>
       </build>
