@@ -35,10 +35,11 @@ Project POM based on the skeleton file of the "glacier-apache-maven@0.3.0" proje
       (7.0.0) validate
       (7.0.1) process-resources
       (7.0.2) compile
-      (7.0.3) package
-      (7.0.4) verify
-      (7.0.5) install
-      (7.0.6) deploy
+      (7.0.3) test
+      (7.0.4) package
+      (7.0.5) verify
+      (7.0.6) install
+      (7.0.7) deploy
   (8) Repositories
     (8.0) Maven Central
   (9) Plugin Repositories
@@ -476,6 +477,9 @@ Glacier Apache Maven Project
               <goal>report</goal>
             </goals>
           </execution>
+          <configuration>
+            <dataFile>${buildRootDirectory}/jacoco-report.exec</dataFile>
+          </configuration>
         </executions>
       </plugin>
       <!--+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - [7.0.3]-+-->
