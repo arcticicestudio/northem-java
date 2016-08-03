@@ -1050,9 +1050,6 @@ Glacier Apache Maven Project
                 </goals>
               </execution>
             </executions>
-            <configuration>
-              <dataFile>${buildRootDirectory}/jacoco-report.exec</dataFile>
-            </configuration>
           </plugin>
         </plugins>
       </build>
