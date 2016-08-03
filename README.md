@@ -1,6 +1,6 @@
 <img align="center" src="https://raw.githubusercontent.com/arcticicestudio/northem-java/develop/src/main/assets/media/banner.png" alt="Northem Java"/> <a href="https://github.com/arcticicestudio/northem"><img align="right" src="https://raw.githubusercontent.com/arcticicestudio/northem-java/develop/src/main/assets/media/northem-logo.png"/></a>
 
-<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=24 height=24/> [![Travis CI](https://img.shields.io/travis/arcticicestudio/northem-java/develop.svg)](https://travis-ci.org/arcticicestudio/northem-java) <img src="https://codecov.io/favicon.ico" width=24 height=24/> [![codecov](https://codecov.io/gh/arcticicestudio/northem-java/branch/develop/graph/badge.svg)](https://codecov.io/gh/arcticicestudio/northem-java) <img src="https://assets-cdn.github.com/favicon.ico" width=24 height=24/> [![GitHub release](https://img.shields.io/github/release/arcticicestudio/northem-java.svg)](https://github.com/arcticicestudio/northem-java/releases/latest) <img src="http://central.sonatype.org/favicon.ico" width=24 height=24/> [![Central Repository](https://img.shields.io/maven-central/v/com.arcticicestudio/northem-java.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.arcticicestudio%22%20AND%20a%3A%22northem-java%22)
+<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=24 height=24/> [![Travis CI](https://img.shields.io/travis/arcticicestudio/northem-java/develop.svg)](https://travis-ci.org/arcticicestudio/northem-java) <img src="https://codecov.io/favicon.ico" width=24 height=24/> [![codecov](https://codecov.io/gh/arcticicestudio/northem-java/branch/develop/graph/badge.svg)](https://codecov.io/gh/arcticicestudio/northem-java) <img src="https://assets-cdn.github.com/favicon.ico" width=24 height=24/> [![GitHub release](https://img.shields.io/github/release/arcticicestudio/northem-java.svg)](https://github.com/arcticicestudio/northem-java/releases/latest) <img src="http://central.sonatype.org/favicon.ico" width=24 height=24/> [![Central Repository](https://img.shields.io/maven-central/v/com.arcticicestudio/northem-java.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.arcticicestudio%22%20AND%20a%3A%22northem-java%22) <img src="https://oss.sonatype.org/favicon.ico"/> [![OSS Sonatype Snapshot](https://img.shields.io/badge/snapshot-0.3.0--SNAPSHOT-blue.svg)](https://oss.sonatype.org/content/repositories/snapshots/com/arcticicestudio/northem-java)
 
 Java library implementation of the north-bluish dark color palette [Northem](https://github.com/arcticicestudio/northem).  
 Optimized for syntax highlighting- and UI projects.  
@@ -29,7 +29,7 @@ compile(group: 'com.arcticicestudio', name: 'northem-java', version: '0.2.0')
 <dependency org="com.arcticicestudio" name="northem-java" rev="0.2.0" />
 ```
 
-Development snapshots are available via [Sonatype's snapshot repository](https://oss.sonatype.org/content/repositories/snapshots).  
+Development snapshots are available via [OSS Sonatype](https://oss.sonatype.org/content/repositories/snapshots/com/arcticicestudio/northem-java).  
 
 ### Build
 Build and install northem-java into your local repository without GPG signing:  
