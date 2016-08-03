@@ -1,6 +1,6 @@
 <img align="center" src="https://raw.githubusercontent.com/arcticicestudio/northem-java/develop/src/main/assets/media/banner.png" alt="Northem Java"/> <a href="https://github.com/arcticicestudio/northem"><img align="right" src="https://raw.githubusercontent.com/arcticicestudio/northem-java/develop/src/main/assets/media/northem-logo.png"/></a>
 
-<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=24 height=24/> [![Travis CI](https://img.shields.io/travis/arcticicestudio/northem-java/develop.svg)](https://travis-ci.org/arcticicestudio/northem-java) <img src="https://assets-cdn.github.com/favicon.ico" width=24 height=24/> [![](https://img.shields.io/github/release/arcticicestudio/northem-java.svg)](https://github.com/arcticicestudio/northem-java/releases/latest) <img src="http://search.maven.org/favicon.ico" width=24 height=24/> [![](https://img.shields.io/maven-central/v/com.arcticicestudio/northem-java.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.arcticicestudio%22%20AND%20a%3A%22northem-java%22)
+<img src="https://cdn.travis-ci.org/images/favicon-c566132d45ab1a9bcae64d8d90e4378a.svg" width=24 height=24/> [![Travis CI](https://img.shields.io/travis/arcticicestudio/northem-java/develop.svg)](https://travis-ci.org/arcticicestudio/northem-java) <img src="https://assets-cdn.github.com/favicon.ico" width=24 height=24/> [![](https://img.shields.io/github/release/arcticicestudio/northem-java.svg)](https://github.com/arcticicestudio/northem-java/releases/latest) <img src="http://central.sonatype.org/favicon.ico" width=24 height=24/> [![](https://img.shields.io/maven-central/v/com.arcticicestudio/northem-java.svg)](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.arcticicestudio%22%20AND%20a%3A%22northem-java%22)
 
 Java library implementation of the north-bluish dark color palette [Northem](https://github.com/arcticicestudio/northem).  
 Optimized for syntax highlighting- and UI projects.  
@@ -8,7 +8,7 @@ Optimized for syntax highlighting- and UI projects.
 ## Getting started
 ### Setup
 To use northem-java it must be available in your classpath.  
-You can get it from <img src="https://search.maven.org/favicon.ico" width=16 height=16/> <a href="https://search.maven.org">Maven Central</a> as a dependency for your favorite build tool or [download the latest version](https://github.com/arcticicestudio/northem-java/releases/latest).
+You can get it from the <img src="http://central.sonatype.org/favicon.ico" width=16 height=16/> <a href="https://search.maven.org">Central Repository</a> as a dependency for your favorite build tool or [download the latest version](https://github.com/arcticicestudio/northem-java/releases/latest).
 
 <img src="http://apache.org/favicons/favicon.ico" width=16 height=16/> <a href="https://maven.apache.org">Apache Maven</a>
 ```xml
